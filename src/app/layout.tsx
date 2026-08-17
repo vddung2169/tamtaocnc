@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 
+import { SiteBackground } from "@/components/layout/SiteBackground";
+import { DesktopContactRail } from "@/components/layout/DesktopContactRail";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { DesktopContactRail } from "@/components/layout/DesktopContactRail";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { ThemeScript } from "@/components/theme/ThemeScript";
@@ -110,21 +111,24 @@ export default function RootLayout({
       </head>
       <body className="min-h-dvh antialiased">
         <ThemeProvider>
-          <a
-            href="#noi-dung"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-neon focus:px-4 focus:py-2 focus:text-primary-foreground"
-          >
-            Bỏ qua điều hướng, tới nội dung chính
-          </a>
+          <SiteBackground />
+          <div className="relative z-10">
+            <a
+              href="#noi-dung"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-neon focus:px-4 focus:py-2 focus:text-primary-foreground"
+            >
+              Bỏ qua điều hướng, tới nội dung chính
+            </a>
 
-          <SiteHeader />
-          <DesktopContactRail />
-          <main id="noi-dung" className="pb-16 md:pb-0">
-            {children}
-          </main>
-          <SiteFooter />
-          <MobileActionBar />
-          <Toaster />
+            <SiteHeader />
+            <DesktopContactRail />
+            <main id="noi-dung" className="pb-16 md:pb-0">
+              {children}
+            </main>
+            <SiteFooter />
+            <MobileActionBar />
+            <Toaster />
+          </div>
         </ThemeProvider>
 
         <script

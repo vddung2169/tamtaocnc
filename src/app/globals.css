@@ -144,6 +144,7 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    position: relative;
     text-rendering: optimizeLegibility;
   }
 
@@ -202,6 +203,112 @@
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
   }
+
+  .site-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .site-bg__base,
+  .site-bg__grid,
+  .site-bg__glow,
+  .site-bg__noise {
+    position: absolute;
+    inset: 0;
+  }
+
+  .site-bg__base {
+    background:
+      radial-gradient(circle at top, color-mix(in srgb, var(--neon) 14%, transparent), transparent 40%),
+      linear-gradient(180deg, color-mix(in srgb, var(--background) 90%, #dff3e7 10%), var(--background));
+  }
+
+  .site-bg__grid {
+    opacity: 0.52;
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--neon) 18%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--neon) 18%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 34px 34px;
+    background-position: 0 0;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 92%);
+    animation: bg-grid-drift 26s linear infinite;
+  }
+
+  .site-bg__glow {
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.24;
+    will-change: transform;
+  }
+
+  .site-bg__glow--one {
+    top: 10%;
+    left: -8%;
+    width: min(38rem, 58vw);
+    height: min(38rem, 58vw);
+    background:
+      radial-gradient(circle, color-mix(in srgb, var(--neon) 32%, transparent) 0%, transparent 68%);
+    animation: bg-glow-one 16s ease-in-out infinite alternate;
+  }
+
+  .site-bg__glow--two {
+    right: -10%;
+    bottom: 12%;
+    width: min(32rem, 50vw);
+    height: min(32rem, 50vw);
+    background:
+      radial-gradient(circle, color-mix(in srgb, var(--neon-deep) 34%, transparent) 0%, transparent 70%);
+    animation: bg-glow-two 20s ease-in-out infinite alternate;
+  }
+
+  .site-bg__noise {
+    opacity: 0.055;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7) 0.6px, transparent 0.7px),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.4) 0.6px, transparent 0.7px),
+      radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.4) 0.6px, transparent 0.7px),
+      radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.55) 0.6px, transparent 0.7px);
+    background-size: 26px 26px, 32px 32px, 29px 29px, 36px 36px;
+    mix-blend-mode: soft-light;
+  }
+
+  .dark .site-bg__base {
+    background:
+      radial-gradient(circle at top, color-mix(in srgb, var(--neon) 12%, transparent), transparent 38%),
+      linear-gradient(180deg, #08100c 0%, #0b0d0c 52%, #08100d 100%);
+  }
+
+  .dark .site-bg__grid {
+    opacity: 0.55;
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--neon) 20%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--neon) 20%, transparent) 1px,
+        transparent 1px
+      );
+  }
+
+  .dark .site-bg__glow {
+    opacity: 0.28;
+  }
+
+  .dark .site-bg__noise {
+    opacity: 0.035;
+  }
 }
 
 /* Reveal nhẹ khi vào viewport, tắt hoàn toàn nếu người dùng giảm chuyển động */
@@ -240,6 +347,33 @@
   }
 }
 
+@keyframes bg-grid-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 34px, 0);
+  }
+}
+
+@keyframes bg-glow-one {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(10%, 6%, 0) scale(1.08);
+  }
+}
+
+@keyframes bg-glow-two {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-8%, -10%, 0) scale(1.1);
+  }
+}
+
 /* Trình duyệt không hỗ trợ scroll-driven animation thì hiện thẳng, không ẩn nội dung */
 @supports not (animation-timeline: view()) {
   .reveal {
@@ -257,6 +391,12 @@
   .reveal {
     animation: none;
     opacity: 1;
+    transform: none;
+  }
+
+  .site-bg__grid,
+  .site-bg__glow {
+    animation: none;
     transform: none;
   }
 

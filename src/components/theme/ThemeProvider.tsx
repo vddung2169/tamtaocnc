@@ -7,8 +7,8 @@ export type Theme = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
 export const THEME_STORAGE_KEY = "tamtao-theme";
-/** Dark là theme gốc của thương hiệu nên làm mặc định khi khách chưa chọn gì */
-export const DEFAULT_THEME: Theme = "dark";
+/** Lần truy cập đầu tiên sẽ theo theme hệ thống, sau đó lưu lựa chọn vào localStorage */
+export const DEFAULT_THEME: Theme = "system";
 
 type ThemeContextValue = {
   theme: Theme;
@@ -33,16 +33,30 @@ function applyTheme(resolved: ResolvedTheme) {
   root.style.colorScheme = resolved;
 }
 
+function readStoredTheme(): Theme {
+  if (typeof window === "undefined") {
+    return DEFAULT_THEME;
+  }
+
+  const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+  return stored === "light" || stored === "dark" || stored === "system" ? stored : DEFAULT_THEME;
+}
+
+function readResolvedTheme(): ResolvedTheme {
+  if (typeof document !== "undefined") {
+    return document.documentElement.classList.contains("dark") ? "dark" : "light";
+  }
+
+  return "light";
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(DEFAULT_THEME);
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(
-    DEFAULT_THEME === "dark" ? "dark" : "light",
-  );
+  const [theme, setThemeState] = useState<Theme>(() => readStoredTheme());
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() => readResolvedTheme());
 
   // Đọc lựa chọn đã lưu sau khi mount; script chặn ở <head> đã dựng đúng class từ trước
   useEffect(() => {
-    const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-    const initial = stored === "light" || stored === "dark" || stored === "system" ? stored : DEFAULT_THEME;
+    const initial = readStoredTheme();
     const initialResolved = resolve(initial);
 
     setThemeState(initial);
