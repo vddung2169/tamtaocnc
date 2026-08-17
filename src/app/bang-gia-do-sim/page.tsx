@@ -29,7 +29,7 @@ export default function SimPricePage() {
   }));
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
+    <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
       <header>
         <p className="type-eyebrow">{site.tagline}</p>
         <h1 className="type-display mt-3 text-4xl sm:text-5xl">{simPageTitle}</h1>

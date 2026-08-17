@@ -3,7 +3,7 @@ import { MapPin, Phone } from "lucide-react";
 
 import { Logotype } from "@/components/layout/Logotype";
 import { StoreLocation } from "@/components/sections/StoreLocation";
-import { nav, site } from "@/data/site";
+import { nav, shippingPoints, site } from "@/data/site";
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
@@ -12,15 +12,26 @@ export function SiteFooter() {
       {/* Thanh liên hệ nền xanh lá đặc, lấy đúng từ dải dưới bảng hiệu */}
       <div className="bg-neon-deep text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <a
-            href={site.storeMapHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start gap-2 rounded-md text-sm underline-offset-4 hover:underline"
-          >
-            <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-            <span>{site.storeAddress}</span>
-          </a>
+          <div className="flex flex-col gap-2">
+            <a
+              href={site.storeMapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 rounded-md text-sm underline-offset-4 hover:underline"
+            >
+              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              <span>{site.storeAddress}</span>
+            </a>
+            <a
+              href={shippingPoints[0].mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 rounded-md text-sm underline-offset-4 hover:underline"
+            >
+              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              <span>9A đường số 6, Linh Xuân, TP. Hồ Chí Minh</span>
+            </a>
+          </div>
           <a href={site.phoneHref} className="flex items-center gap-2 rounded-md text-sm font-semibold">
             <Phone className="size-4 shrink-0" aria-hidden="true" />
             <span className="num tracking-wide">{site.phoneDisplay}</span>
