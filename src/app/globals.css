@@ -1,0 +1,265 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark mode bật theo class trên <html>, do ThemeProvider đặt */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Tâm Táo CNC — hệ màu lấy từ bảng hiệu cửa tiệm.
+  Dark là theme gốc của thương hiệu, light là bản chuyển cho nền sáng:
+  xanh neon hạ độ sáng để chữ vẫn đọc rõ trên nền trắng.
+*/
+:root {
+  --radius: 0.75rem;
+
+  color-scheme: light;
+
+  --background: #ffffff;
+  --foreground: #0b0d0c;
+
+  --surface: #f6f8f6;
+  --line: #dde5df;
+
+  --neon: #0f9b45;
+  --neon-deep: #0b7a35;
+
+  --card: #ffffff;
+  --card-foreground: #0b0d0c;
+  --popover: #ffffff;
+  --popover-foreground: #0b0d0c;
+
+  --primary: #0f9b45;
+  --primary-foreground: #ffffff;
+
+  --secondary: #eef2ef;
+  --secondary-foreground: #0b0d0c;
+
+  --muted: #f6f8f6;
+  --muted-foreground: #57615a;
+
+  --accent: #eef2ef;
+  --accent-foreground: #0b0d0c;
+
+  --destructive: #d92d20;
+  --destructive-foreground: #ffffff;
+
+  --border: #dde5df;
+  --input: #dde5df;
+  --ring: #0f9b45;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0b0d0c;
+  --foreground: #ffffff;
+
+  --surface: #161a18;
+  --line: #2a302c;
+
+  --neon: #2be85f;
+  --neon-deep: #128a3a;
+
+  --card: #161a18;
+  --card-foreground: #ffffff;
+  --popover: #121614;
+  --popover-foreground: #ffffff;
+
+  --primary: #2be85f;
+  --primary-foreground: #06170c;
+
+  --secondary: #1b211d;
+  --secondary-foreground: #ffffff;
+
+  --muted: #161a18;
+  --muted-foreground: #a8b0aa;
+
+  --accent: #1b211d;
+  --accent-foreground: #ffffff;
+
+  --destructive: #f04438;
+  --destructive-foreground: #ffffff;
+
+  --border: #2a302c;
+  --input: #2a302c;
+  --ring: #2be85f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-neon: var(--neon);
+  --color-neon-deep: var(--neon-deep);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-data), ui-monospace, "SF Mono", monospace;
+
+  --animate-accordion-down: accordion-down 0.22s ease-out;
+  --animate-accordion-up: accordion-up 0.22s ease-out;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--neon);
+    color: var(--primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Chữ display kiểu bảng hiệu: hoa, condensed, giãn nhẹ */
+  .type-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.02;
+  }
+
+  .type-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  /* Motif chủ đạo: khối bo góc viền xanh phát sáng nhẹ, đúng như bảng hiệu */
+  .neon-frame {
+    border: 1px solid color-mix(in srgb, var(--neon) 45%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--neon) 8%, transparent);
+  }
+
+  .neon-text {
+    color: var(--neon);
+  }
+
+  /* Ánh neon chỉ hợp trên nền tối; nền sáng để phẳng cho chữ sạch nét */
+  .dark .neon-frame {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--neon) 8%, transparent),
+      0 0 18px -6px color-mix(in srgb, var(--neon) 55%, transparent);
+  }
+
+  .dark .neon-text {
+    text-shadow: 0 0 22px color-mix(in srgb, var(--neon) 35%, transparent);
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* Reveal nhẹ khi vào viewport, tắt hoàn toàn nếu người dùng giảm chuyển động */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: reveal-in 0.5s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 18%;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes reveal-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Trình duyệt không hỗ trợ scroll-driven animation thì hiện thẳng, không ẩn nội dung */
+@supports not (animation-timeline: view()) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
