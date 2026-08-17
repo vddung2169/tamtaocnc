@@ -127,3 +127,4 @@ Toàn bộ trang là Server Component tĩnh, không database, không API route. 
 - [ ] Kiểm tra redirect `?page_id=2` như ghi ở trên
 - [ ] Đo Lighthouse mobile trên bản deploy (mục tiêu Performance ≥ 95, Accessibility ≥ 95, SEO 100)
 # tamtaocnc
+# tamtaocnc
