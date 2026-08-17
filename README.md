@@ -78,6 +78,7 @@ Chưa có logo vector. Logo hiện là logotype bằng chữ (`src/components/la
 Lấy từ bảng hiệu cửa tiệm, khai báo trong `globals.css`:
 
 | Token | Hex |
+# tamtaocnc
 | --- | --- |
 | `--background` | `#0B0D0C` |
 | `--surface` | `#161A18` |
