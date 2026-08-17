@@ -11,12 +11,34 @@ export const metadata: Metadata = {
   title: "Bảng giá độ SIM iPhone Lock 2026",
   description:
     "Bảng giá độ SIM vật lý, eSIM, up ổ EID và CNC máy iPhone lock từ iPhone 12 đến 17 Pro Max. Giá sỉ cho thợ và chủ tiệm, bảo hành 1 năm phần độ SIM.",
+  keywords: [
+    "bảng giá độ SIM iPhone lock",
+    "giá độ eSIM iPhone lock",
+    "giá CNC iPhone lock",
+    "up ổ EID iPhone",
+    "Tâm Táo CNC",
+  ],
   alternates: { canonical: "/bang-gia-do-sim" },
   openGraph: {
     title: "Bảng giá độ SIM iPhone Lock 2026 | Tâm Táo CNC",
     description:
       "Giá độ SIM vật lý, eSIM, up ổ EID và CNC máy lock từ iPhone 12 đến 17 Pro Max. Giá sỉ, bảo hành 1 năm.",
     url: "/bang-gia-do-sim",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Bảng giá độ SIM iPhone Lock tại Tâm Táo CNC",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bảng giá độ SIM iPhone Lock 2026 | Tâm Táo CNC",
+    description:
+      "Giá độ SIM vật lý, eSIM, up ổ EID và CNC máy iPhone lock từ iPhone 12 đến 17 Pro Max.",
+    images: ["/opengraph-image"],
   },
 };
 

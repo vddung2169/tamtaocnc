@@ -16,12 +16,34 @@ export const metadata: Metadata = {
   title: "Bảng giá thay pin iPhone dung lượng cao",
   description:
     "Bảng giá thay pin iPhone dung lượng cao Energizer từ iPhone X đến iPhone 16 Pro Max. Bảo hành 1 năm, pin có giấy chứng nhận thẩm định.",
+  keywords: [
+    "bảng giá thay pin iPhone",
+    "thay pin iPhone dung lượng cao",
+    "pin Energizer iPhone",
+    "thay pin iPhone TP HCM",
+    "Tâm Táo CNC",
+  ],
   alternates: { canonical: "/bang-gia-thay-pin" },
   openGraph: {
     title: "Bảng giá thay pin iPhone dung lượng cao | Tâm Táo CNC",
     description:
       "Pin dung lượng cao Energizer cho iPhone X đến 16 Pro Max, bảo hành 1 năm, có giấy chứng nhận thẩm định.",
     url: "/bang-gia-thay-pin",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Bảng giá thay pin iPhone dung lượng cao tại Tâm Táo CNC",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bảng giá thay pin iPhone dung lượng cao | Tâm Táo CNC",
+    description:
+      "Pin dung lượng cao Energizer cho iPhone X đến iPhone 16 Pro Max, bảo hành 1 năm.",
+    images: ["/opengraph-image"],
   },
 };
 
