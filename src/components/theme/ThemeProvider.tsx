@@ -43,9 +43,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     const initial = stored === "light" || stored === "dark" || stored === "system" ? stored : DEFAULT_THEME;
+    const initialResolved = resolve(initial);
 
     setThemeState(initial);
-    setResolvedTheme(resolve(initial));
+    setResolvedTheme(initialResolved);
+    applyTheme(initialResolved);
   }, []);
 
   // Chỉ khi khách chọn "system" mới bám theo cài đặt máy

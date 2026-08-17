@@ -57,7 +57,7 @@ export function SiteFooter() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 py-12 pt-0 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-12 pb-28 pt-0 sm:px-6 sm:pb-12">
         <StoreLocation />
       </div>
     </footer>

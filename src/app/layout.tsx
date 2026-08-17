@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { DesktopContactRail } from "@/components/layout/DesktopContactRail";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { ThemeScript } from "@/components/theme/ThemeScript";
@@ -103,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className="dark" suppressHydrationWarning>
+    <html lang="vi" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>
@@ -117,6 +118,7 @@ export default function RootLayout({
           </a>
 
           <SiteHeader />
+          <DesktopContactRail />
           <main id="noi-dung" className="pb-16 md:pb-0">
             {children}
           </main>
