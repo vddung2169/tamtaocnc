@@ -17,6 +17,8 @@ export type ShippingPoint = {
   address: string;
   /** Chuỗi tra cứu Google Maps, ghi đầy đủ hơn địa chỉ hiển thị để pin đúng vị trí */
   mapQuery: string;
+  /** Link chia sẻ chuẩn Google Maps do chủ tiệm cung cấp */
+  mapHref: string;
   receiver: string;
   phone: string;
   note: string;
@@ -44,9 +46,10 @@ export const site = {
   facebookHref: "https://www.facebook.com/share/1Aymivcxkd/?mibextid=wwXIfr",
   imeiHref: "https://checkle.vn/dang-nhap",
 
-  storeAddress: "135 đường Lê Lợi, P. Hạnh Thông, TP. HCM",
+  storeAddress: "135 đường Lê Lợi, P. Hạnh Thông, TP. Hồ Chí Minh",
   storeAddressShort: "135 Lê Lợi, P. Hạnh Thông, TP HCM",
   storeMapQuery: "135 Lê Lợi, Phường Hạnh Thông, Thành phố Hồ Chí Minh, Việt Nam",
+  storeMapHref: "https://maps.app.goo.gl/C7dCRvvCKiAJhA1TA",
 } as const;
 
 export const nav: readonly NavItem[] = [
@@ -70,14 +73,16 @@ export const shippingPoints: readonly ShippingPoint[] = [
     label: "Gửi chành xe FuTa",
     address: "9A đường số 6, Linh Xuân, TP HCM",
     mapQuery: "9A Đường số 6, Linh Xuân, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
+    mapHref: "https://maps.app.goo.gl/Xu2xvQV1Y32h7cg28",
     receiver: site.owner,
     phone: site.phone,
-    note: "ae ở xa gửi qua chành FuTa",
+    note: "Anh em ở xa gửi qua chành xe FuTa",
   },
   {
     label: "Gửi chuyển phát",
     address: "135 Lê Lợi, P. Hạnh Thông, TP HCM",
     mapQuery: site.storeMapQuery,
+    mapHref: site.storeMapHref,
     receiver: site.owner,
     phone: site.phone,
     note: "Địa chỉ cửa tiệm, khách đến trực tiếp cũng tại đây",

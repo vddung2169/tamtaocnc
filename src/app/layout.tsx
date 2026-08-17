@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -11,31 +10,10 @@ import { shippingPoints, site } from "@/data/site";
 
 import "./globals.css";
 
-const display = Barlow_Condensed({
-  variable: "--font-display",
-  subsets: ["latin", "vietnamese"],
-  weight: ["600", "700"],
-  display: "swap",
-});
-
-const body = Be_Vietnam_Pro({
-  variable: "--font-body",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono-data",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Tâm Táo CNC | Độ SIM iPhone Lock, CNC, Thay Pin TP HCM",
+    default: "Tâm Táo CNC",
     template: "%s | Tâm Táo CNC",
   },
   description:
@@ -49,6 +27,11 @@ export const metadata: Metadata = {
     "Tâm Táo CNC",
   ],
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+    apple: ["/icon.svg"],
+  },
   openGraph: {
     type: "website",
     locale: "vi_VN",
@@ -120,11 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="vi"
-      className={`dark ${display.variable} ${body.variable} ${mono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="vi" className="dark" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

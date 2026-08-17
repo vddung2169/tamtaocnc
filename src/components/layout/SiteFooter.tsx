@@ -2,9 +2,8 @@ import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
 
 import { Logotype } from "@/components/layout/Logotype";
+import { StoreLocation } from "@/components/sections/StoreLocation";
 import { nav, site } from "@/data/site";
-import { mapPlaceUrl } from "@/lib/maps";
-
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
@@ -14,7 +13,7 @@ export function SiteFooter() {
       <div className="bg-neon-deep text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <a
-            href={mapPlaceUrl(site.storeMapQuery)}
+            href={site.storeMapHref}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-start gap-2 rounded-md text-sm underline-offset-4 hover:underline"
@@ -56,6 +55,10 @@ export function SiteFooter() {
           © {year} {site.name} — {site.owner}. Hotline & Zalo{" "}
           <span className="num">{site.phoneDisplay}</span>.
         </p>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-12 pt-0 sm:px-6">
+        <StoreLocation />
       </div>
     </footer>
   );

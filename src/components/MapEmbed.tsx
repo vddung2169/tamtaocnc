@@ -6,13 +6,15 @@ import { cn } from "@/lib/utils";
 type MapEmbedProps = {
   /** Chuỗi địa chỉ đưa vào Google Maps */
   query: string;
+  /** Link chia sẻ chuẩn để mở đúng ghim địa điểm */
+  placeHref?: string;
   /** Dùng cho title của iframe, đọc bằng trình đọc màn hình */
   title: string;
   /** Chiều cao khung bản đồ, mặc định vừa cho thẻ trong lưới 2 cột */
   className?: string;
 };
 
-export function MapEmbed({ query, title, className }: MapEmbedProps) {
+export function MapEmbed({ query, placeHref, title, className }: MapEmbedProps) {
   return (
     <div
       className={cn(
@@ -40,7 +42,7 @@ export function MapEmbed({ query, title, className }: MapEmbedProps) {
           Chỉ đường
         </a>
         <a
-          href={mapPlaceUrl(query)}
+          href={placeHref ?? mapPlaceUrl(query)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium transition-colors hover:bg-neon/10 hover:text-neon"

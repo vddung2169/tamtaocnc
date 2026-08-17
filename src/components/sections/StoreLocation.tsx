@@ -52,6 +52,7 @@ export function StoreLocation() {
 
         <MapEmbed
           query={site.storeMapQuery}
+          placeHref={site.storeMapHref}
           title={`Bản đồ Google tới ${site.name}, ${site.storeAddress}`}
           className="min-h-[22rem]"
         />

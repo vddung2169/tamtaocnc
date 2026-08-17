@@ -1,19 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { ArrowRight, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ZaloIcon } from "@/components/BrandIcons";
 import { site } from "@/data/site";
-import { mapPlaceUrl } from "@/lib/maps";
 
 export function Hero() {
   return (
     <section className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
       <div>
-        <p className="type-eyebrow">{site.tagline}</p>
+        <div className="neon-frame inline-flex w-full max-w-3xl items-center gap-3 rounded-2xl bg-surface px-4 py-3 sm:px-5 sm:py-4">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-neon/10 text-neon">
+            <ShieldCheck className="size-6" aria-hidden="true" />
+          </span>
+          <div className="min-w-0 overflow-hidden">
+            <div className="type-display truncate whitespace-nowrap text-sm leading-tight sm:text-base lg:text-lg">
+              {site.tagline}
+            </div>
+          </div>
+        </div>
 
-        <h1 className="type-display mt-3 text-[2.5rem] leading-[0.98] sm:text-6xl lg:text-7xl">
+        <h1 className="type-display mt-3 text-[2.5rem] leading-[1.28] sm:text-6xl sm:leading-[1.28] lg:text-7xl">
           {site.heroTitle}
         </h1>
 
@@ -51,7 +59,7 @@ export function Hero() {
             Nhắn Zalo
           </a>
           <a
-            href={mapPlaceUrl(site.storeMapQuery)}
+            href={site.storeMapHref}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-md text-muted-foreground hover:text-neon"

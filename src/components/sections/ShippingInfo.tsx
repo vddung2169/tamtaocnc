@@ -60,6 +60,7 @@ export function ShippingInfo() {
 
             <MapEmbed
               query={point.mapQuery}
+              placeHref={point.mapHref}
               title={`Bản đồ Google tới ${point.label}: ${point.address}`}
               className="mt-4"
             />

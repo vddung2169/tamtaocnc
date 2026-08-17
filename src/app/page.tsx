@@ -4,7 +4,6 @@ import { ServiceList } from "@/components/sections/ServiceList";
 import { PriceTeaser } from "@/components/sections/PriceTeaser";
 import { WarrantyNote } from "@/components/sections/WarrantyNote";
 import { ShippingInfo } from "@/components/sections/ShippingInfo";
-import { StoreLocation } from "@/components/sections/StoreLocation";
 
 export default function HomePage() {
   return (
@@ -15,7 +14,6 @@ export default function HomePage() {
       <PriceTeaser />
       <WarrantyNote />
       <ShippingInfo />
-      <StoreLocation />
     </div>
   );
 }
