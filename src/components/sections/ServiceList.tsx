@@ -36,7 +36,7 @@ function ServiceBlock({ service }: { service: ServiceItem }) {
       <span
         className={cn(
           "type-display",
-          isPrimary ? "mt-4 block text-xl sm:text-2xl" : "text-sm sm:text-base",
+          isPrimary ? "mt-4 block text-lg sm:text-xl" : "text-sm sm:text-base",
         )}
       >
         {service.title}

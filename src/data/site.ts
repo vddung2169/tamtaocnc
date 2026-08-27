@@ -63,7 +63,7 @@ export const nav: readonly NavItem[] = [
 export const services: readonly ServiceItem[] = [
   { title: "CNC SIM VẬT LÝ", icon: "cnc", level: "primary", href: "/bang-gia-do-sim" },
   { title: "THAY PIN", icon: "battery", level: "primary", href: "/bang-gia-thay-pin" },
-  { title: "THAY THẾ LINH KIỆN", icon: "chip", level: "primary", href: "/bang-gia" },
+  { title: "DỊCH VỤ THAY THẾ SỬA CHỮA", icon: "chip", level: "primary", href: "/bang-gia" },
   { title: "SỬA CHỮA ĐIỆN THOẠI", icon: "wrench", level: "secondary" },
   { title: "MỞ MẠNG QUỐC TẾ", icon: "globe", level: "secondary", href: site.imeiHref },
   { title: "BẢO HÀNH DÀI HẠN", icon: "shield", level: "secondary" },
