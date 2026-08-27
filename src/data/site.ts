@@ -71,16 +71,7 @@ export const services: readonly ServiceItem[] = [
 
 export const shippingPoints: readonly ShippingPoint[] = [
   {
-    label: "Gửi chành xe FuTa",
-    address: "9A đường số 6, Linh Xuân, TP HCM",
-    mapQuery: "9A Đường số 6, Linh Xuân, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
-    mapHref: "https://maps.app.goo.gl/Xu2xvQV1Y32h7cg28",
-    receiver: site.owner,
-    phone: site.phone,
-    note: "Anh em ở xa gửi qua chành xe FuTa",
-  },
-  {
-    label: "Gửi chuyển phát",
+    label: "Chi nhánh 1",
     address: "135 Lê Lợi, P. Hạnh Thông, TP HCM",
     mapQuery: site.storeMapQuery,
     mapHref: site.storeMapHref,
@@ -88,4 +79,14 @@ export const shippingPoints: readonly ShippingPoint[] = [
     phone: site.phone,
     note: "Địa chỉ cửa tiệm, khách đến trực tiếp cũng tại đây",
   },
+  {
+    label: "Chi nhánh 2",
+    address: "9A đường số 6, Linh Xuân, TP HCM",
+    mapQuery: "9A Đường số 6, Linh Xuân, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
+    mapHref: "https://maps.app.goo.gl/Xu2xvQV1Y32h7cg28",
+    receiver: site.owner,
+    phone: site.phone,
+    note: "Anh em ở xa gửi qua chành xe FuTa",
+  },
+  
 ];

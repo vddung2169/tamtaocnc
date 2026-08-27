@@ -56,7 +56,7 @@ export function ShippingInfo() {
               {point.receiver} — <span className="num">{site.phoneDisplay}</span>
             </p>
 
-            <p className="mt-1 text-xs text-muted-foreground">{point.note}</p>
+            <p className="mt-2 text-xs text-muted-foreground">{point.note}</p>
 
             <MapEmbed
               query={point.mapQuery}

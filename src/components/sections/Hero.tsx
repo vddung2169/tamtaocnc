@@ -37,8 +37,8 @@ export function Hero() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="/bang-gia-thay-pin">
-              Xem bảng giá pin
+            <Link href="/bang-gia">
+              Xem bảng giá thay pin, sửa chữa
               <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
