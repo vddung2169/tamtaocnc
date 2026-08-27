@@ -1,53 +1,21 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { simPrices } from "@/data/do-sim";
-import { batteryPrices } from "@/data/thay-pin";
+import { priceCatalog } from "@/data/price-catalog";
 
-type TeaserRow = { model: string; detail: string; price: string };
-
-type Teaser = {
-  title: string;
-  href: string;
-  note: string;
-  rows: TeaserRow[];
-  total: number;
+type PriceTeaserProps = {
+  title?: string;
 };
 
-const teasers: Teaser[] = [
-  {
-    title: "ĐỘ SIM MÁY LOCK",
-    href: "/bang-gia-do-sim",
-    note: "Giá sỉ, khách lẻ cộng thêm 200-300k",
-    total: simPrices.length,
-    rows: simPrices.slice(0, 3).map((row) => ({
-      model: row.model,
-      detail: row.service,
-      price: row.price,
-    })),
-  },
-  {
-    title: "THAY PIN DUNG LƯỢNG CAO",
-    href: "/bang-gia-thay-pin",
-    note: "Pin Energizer, bảo hành 1 năm",
-    total: batteryPrices.length,
-    rows: batteryPrices.slice(0, 3).map((row) => ({
-      model: row.model,
-      detail: `${row.capacityMah.toLocaleString("vi-VN")} mAh`,
-      price: row.price,
-    })),
-  },
-];
-
-export function PriceTeaser() {
+export function PriceTeaser({ title = "Bảng giá" }: PriceTeaserProps) {
   return (
     <section aria-labelledby="bang-gia-teaser" className="reveal">
       <h2 id="bang-gia-teaser" className="type-display text-2xl sm:text-3xl">
-        Bảng giá
+        {title}
       </h2>
 
       <div className="mt-6 grid gap-3 lg:grid-cols-2">
-        {teasers.map((teaser) => (
+        {priceCatalog.map((teaser) => (
           <Link
             key={teaser.href}
             href={teaser.href}
@@ -72,9 +40,11 @@ export function PriceTeaser() {
                 >
                   <span className="min-w-0 text-sm">
                     <span className="num text-foreground">{row.model}</span>
-                    <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
-                      {row.detail}
-                    </span>
+                    {row.detail ? (
+                      <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
+                        {row.detail}
+                      </span>
+                    ) : null}
                   </span>
                   <span className="num shrink-0 text-sm font-medium text-neon">{row.price}</span>
                 </li>

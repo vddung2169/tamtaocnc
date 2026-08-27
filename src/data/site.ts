@@ -54,15 +54,16 @@ export const site = {
 
 export const nav: readonly NavItem[] = [
   { label: "Trang chủ", href: "/" },
-  { label: "Bảng giá độ SIM", href: "/bang-gia-do-sim" },
-  { label: "Bảng giá thay pin", href: "/bang-gia-thay-pin" },
+  { label: "Độ SIM", href: "/bang-gia-do-sim" },
+  { label: "Thay pin", href: "/bang-gia-thay-pin" },
+  { label: "Tất cả bảng giá", href: "/bang-gia" },
 ];
 
 /** 6 mục lấy đúng từ bảng hiệu cửa tiệm, không tự nghĩ thêm. */
 export const services: readonly ServiceItem[] = [
   { title: "CNC SIM VẬT LÝ", icon: "cnc", level: "primary", href: "/bang-gia-do-sim" },
   { title: "THAY PIN", icon: "battery", level: "primary", href: "/bang-gia-thay-pin" },
-  { title: "THAY THẾ LINH KIỆN", icon: "chip", level: "primary" },
+  { title: "THAY THẾ LINH KIỆN", icon: "chip", level: "primary", href: "/bang-gia" },
   { title: "SỬA CHỮA ĐIỆN THOẠI", icon: "wrench", level: "secondary" },
   { title: "MỞ MẠNG QUỐC TẾ", icon: "globe", level: "secondary", href: site.imeiHref },
   { title: "BẢO HÀNH DÀI HẠN", icon: "shield", level: "secondary" },

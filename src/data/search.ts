@@ -1,4 +1,7 @@
 import { simPageTitle, simPrices, simTerms } from "@/data/do-sim";
+import { faceIdPageTitle, faceIdServiceRows } from "@/data/face-id";
+import { glassOnlyPrices, glassRepairPageTitle, touchRepairPrices } from "@/data/ep-kinh";
+import { priceCatalog } from "@/data/price-catalog";
 import { shippingPoints, site, services } from "@/data/site";
 import {
   batteryPageTitle,
@@ -6,6 +9,12 @@ import {
   batteryTableTitle,
   batteryTerms,
 } from "@/data/thay-pin";
+import {
+  cameraGlassPageTitle,
+  cameraGlassPrices,
+  cameraGlassTableTitle,
+  cameraGlassTerms,
+} from "@/data/thay-kinh-camera";
 
 export type SearchEntry = {
   id: string;
@@ -15,6 +24,53 @@ export type SearchEntry = {
   section: string;
   keywords?: string[];
 };
+
+function buildPriceKeywords(price: string) {
+  const normalized = price.toLowerCase().replace(/\s+/g, "");
+  const digits = normalized.replace(/[^\d]/g, "");
+  const keywords = new Set<string>([price, normalized]);
+
+  if (normalized.includes("tr")) {
+    keywords.add(normalized.replace("tr", "000k"));
+    keywords.add(normalized.replace("tr", " triệu"));
+  }
+
+  if (digits) {
+    keywords.add(digits);
+  }
+
+  return [...keywords];
+}
+
+function buildModelKeywords(model: string) {
+  const normalized = model
+    .toLowerCase()
+    .replace(/\//g, " ")
+    .replace(/-/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const keywords = new Set<string>([model, normalized]);
+
+  if (normalized.includes("seri")) {
+    keywords.add(normalized.replace("seri", "series"));
+  }
+
+  if (normalized.includes("promax")) {
+    keywords.add(normalized.replace("promax", "pro max"));
+  }
+
+  if (normalized.includes("xsm")) {
+    keywords.add(normalized.replace("xsm", "xs max"));
+  }
+
+  if (normalized.includes("camera")) {
+    keywords.add("camera sau");
+    keywords.add("kinh camera");
+  }
+
+  return [...keywords];
+}
 
 const homeEntries: SearchEntry[] = [
   {
@@ -51,6 +107,14 @@ const homeEntries: SearchEntry[] = [
     keywords: ["chành xe", "futa", "chuyển phát", "gửi máy"],
   },
   {
+    id: "price-hub",
+    title: "Tất cả bảng giá dịch vụ",
+    description: priceCatalog.map((item) => item.title).join(" • "),
+    href: "/bang-gia",
+    section: "Bảng giá",
+    keywords: ["bảng giá", "giá dịch vụ", "thay kính camera", "ép kính", "ép cảm ứng"],
+  },
+  {
     id: "home-store",
     title: "Địa chỉ cửa tiệm",
     description: `${site.storeAddress}. Chủ tiệm ${site.owner}. Gọi hoặc nhắn Zalo trước khi tới.`,
@@ -83,7 +147,7 @@ const simEntries: SearchEntry[] = [
     description: `Giá ${row.price}${row.note ? `. ${row.note}` : ""}`,
     href: "/bang-gia-do-sim",
     section: "Giá độ SIM",
-    keywords: [row.model, row.service, row.price],
+    keywords: [...buildModelKeywords(row.model), row.service, ...buildPriceKeywords(row.price)],
   })),
 ];
 
@@ -110,7 +174,93 @@ const batteryEntries: SearchEntry[] = [
     description: `${row.capacityMah.toLocaleString("vi-VN")} mAh - Giá ${row.price}`,
     href: "/bang-gia-thay-pin",
     section: "Giá thay pin",
-    keywords: [row.model, `${row.capacityMah}`, row.price, "energizer"],
+    keywords: [
+      ...buildModelKeywords(row.model),
+      `${row.capacityMah}`,
+      `${row.capacityMah} mah`,
+      ...buildPriceKeywords(row.price),
+      "energizer",
+      "pin dung luong cao",
+    ],
+  })),
+];
+
+const faceIdEntries: SearchEntry[] = [
+  {
+    id: "faceid-overview",
+    title: faceIdPageTitle,
+    description: "Bảng giá sửa Face ID iPhone.",
+    href: "/bang-gia-sua-face-id",
+    section: "Sửa Face ID",
+    keywords: ["face id", "sua face id iphone", "bang gia face id"],
+  },
+  ...faceIdServiceRows.map((row, index) => ({
+    id: `faceid-price-${index + 1}`,
+    title: row.model,
+    description: row.price,
+    href: "/bang-gia-sua-face-id",
+    section: "Giá sửa Face ID",
+    keywords: [...buildModelKeywords(row.model), ...buildPriceKeywords(row.price), "face id"],
+  })),
+];
+
+const cameraGlassEntries: SearchEntry[] = [
+  {
+    id: "camera-glass-overview",
+    title: cameraGlassPageTitle,
+    description: `${cameraGlassTableTitle}. Giá theo đời máy từ iPhone X đến iPhone 17 Series.`,
+    href: "/bang-gia-thay-kinh-camera",
+    section: "Bảng giá thay kính camera",
+    keywords: ["kính camera", "camera sau", "thay kính camera iphone"],
+  },
+  ...cameraGlassTerms.map((term, index) => ({
+    id: `camera-glass-term-${index + 1}`,
+    title: `Lưu ý thay kính camera ${index + 1}`,
+    description: term,
+    href: "/bang-gia-thay-kinh-camera",
+    section: "Lưu ý thay kính camera",
+    keywords: ["kính camera", "báo giá", "kiểm tra máy"],
+  })),
+  ...cameraGlassPrices.map((row, index) => ({
+    id: `camera-glass-price-${index + 1}`,
+    title: row.model,
+    description: `Thay kính camera sau - Giá ${row.price}`,
+    href: "/bang-gia-thay-kinh-camera",
+    section: "Giá thay kính camera",
+    keywords: [
+      ...buildModelKeywords(row.model),
+      ...buildPriceKeywords(row.price),
+      "kính camera",
+      "camera sau",
+      "thay kính camera",
+    ],
+  })),
+];
+
+const glassRepairEntries: SearchEntry[] = [
+  {
+    id: "glass-repair-overview",
+    title: glassRepairPageTitle,
+    description: "Bảng giá ép kính và ép cảm ứng iPhone.",
+    href: "/bang-gia-ep-kinh",
+    section: "Bảng giá ép kính",
+    keywords: ["ép kính", "ép cảm ứng", "màn hình iphone"],
+  },
+  ...glassOnlyPrices.map((row, index) => ({
+    id: `glass-only-price-${index + 1}`,
+    title: `${row.model} - ${row.service}`,
+    description: `Giá ${row.price}`,
+    href: "/bang-gia-ep-kinh",
+    section: "Giá ép kính",
+    keywords: [...buildModelKeywords(row.model), row.service, ...buildPriceKeywords(row.price)],
+  })),
+  ...touchRepairPrices.map((row, index) => ({
+    id: `touch-repair-price-${index + 1}`,
+    title: `${row.model} - ${row.service}`,
+    description: `Giá ${row.price}`,
+    href: "/bang-gia-ep-kinh",
+    section: "Giá ép cảm ứng",
+    keywords: [...buildModelKeywords(row.model), row.service, ...buildPriceKeywords(row.price)],
   })),
 ];
 
@@ -118,4 +268,7 @@ export const searchEntries: readonly SearchEntry[] = [
   ...homeEntries,
   ...simEntries,
   ...batteryEntries,
+  ...faceIdEntries,
+  ...cameraGlassEntries,
+  ...glassRepairEntries,
 ];
