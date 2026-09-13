@@ -155,10 +155,10 @@ const batteryEntries: SearchEntry[] = [
   {
     id: "battery-overview",
     title: batteryPageTitle,
-    description: `${batteryTableTitle}. Bảo hành 1 năm cho pin iPhone dung lượng cao.`,
+    description: `${batteryTableTitle}. Energizer DLC, Bison chuẩn, pin sàn cổ cáp. Bảo hành 1 năm tất cả các lỗi, bảo hành % pin dưới 85%.`,
     href: "/bang-gia-thay-pin",
     section: "Bảng giá thay pin",
-    keywords: ["pin iphone", "energizer", "dung lượng cao", "bảo hành pin"],
+    keywords: ["pin iphone", "energizer", "bison", "pin san co cap", "dung lượng cao", "bảo hành pin"],
   },
   ...batteryTerms.map((term, index) => ({
     id: `battery-term-${index + 1}`,
@@ -170,17 +170,20 @@ const batteryEntries: SearchEntry[] = [
   })),
   ...batteryPrices.map((row, index) => ({
     id: `battery-price-${index + 1}`,
-    title: row.model,
-    description: `${row.capacityMah.toLocaleString("vi-VN")} mAh - Giá ${row.price}`,
+    title: `Thay pin ${row.model}`,
+    description: `Energizer DLC: ${row.energizerDlc} • Bison chuẩn: ${row.bisonDlChuan}${row.pinSanCoCap !== "-" ? ` • Pin sàn: ${row.pinSanCoCap}` : ""}`,
     href: "/bang-gia-thay-pin",
     section: "Giá thay pin",
     keywords: [
       ...buildModelKeywords(row.model),
-      `${row.capacityMah}`,
-      `${row.capacityMah} mah`,
-      ...buildPriceKeywords(row.price),
       "energizer",
+      "bison",
       "pin dung luong cao",
+      "pin san co cap",
+      "thay pin",
+      ...buildPriceKeywords(row.energizerDlc),
+      ...buildPriceKeywords(row.bisonDlChuan),
+      ...(row.pinSanCoCap !== "-" ? buildPriceKeywords(row.pinSanCoCap) : []),
     ],
   })),
 ];

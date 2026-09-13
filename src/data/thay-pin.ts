@@ -1,39 +1,191 @@
 export type BatteryPriceRow = {
   model: string;
-  capacityMah: number;
-  price: string;
+  energizerDlc: string;
+  bisonDlChuan: string;
+  dlcNoName: string;
+  pinSanCoCap: string;
 };
 
 export const batteryPageTitle = "BẢNG GIÁ THAY PIN IPHONE";
-export const batteryTableTitle = "PIN DUNG LƯỢNG CAO ENERGIZER";
+export const batteryTableTitle = "BẢNG GIÁ THAY PIN IPHONE";
+export const batteryWarrantyNotice =
+  "PIN BẢO HÀNH 1 NĂM TẤT CẢ CÁC LỖI LIÊN QUAN ĐẾN PIN, BẢO HÀNH % NẾU DƯỚI 85 TRONG 1 NĂM";
 
 export const batteryTerms: readonly string[] = [
-  "Thay pin bảo hành 1 năm tất cả tình trạng lỗi của pin (không bảo hành nếu tuổi thọ pin trên 85% sau 1 năm sử dụng).",
-  "Pin Bision và Energizer đều có giấy chứng nhận thẩm định từ cơ quan Việt Nam.",
+  "Pin bảo hành 1 năm tất cả các lỗi liên quan đến pin.",
+  "Bảo hành % pin nếu dung lượng tụt dưới 85% trong 1 năm sử dụng.",
+  "Pin Energizer và Bison đều có giấy chứng nhận thẩm định kiểm tra từ cơ quan Việt Nam.",
+  "Pin dung lượng cao (DLC) hãng không tên: bằng giá với Bison dung lượng chuẩn.",
+  "Giá đã bao gồm công thay lắp hoàn chỉnh, vệ sinh máy và dán ron kháng nước.",
 ];
 
 export const batteryPrices: readonly BatteryPriceRow[] = [
-  { model: "iPhone X", capacityMah: 3180, price: "800k" },
-  { model: "iPhone XR", capacityMah: 3580, price: "750k" },
-  { model: "iPhone XS", capacityMah: 3200, price: "800k" },
-  { model: "iPhone XS Max", capacityMah: 3725, price: "800k" },
-  { model: "iPhone 11", capacityMah: 3600, price: "800k" },
-  { model: "iPhone 11 Pro", capacityMah: 3650, price: "950k" },
-  { model: "iPhone 11 Pro Max", capacityMah: 4800, price: "1.000k" },
-  { model: "iPhone 12 / 12 Pro", capacityMah: 3350, price: "800k" },
-  { model: "iPhone 12 Pro Max", capacityMah: 4600, price: "950k" },
-  { model: "iPhone 13", capacityMah: 3550, price: "900k" },
-  { model: "iPhone 13 Pro", capacityMah: 3400, price: "1.000k" },
-  { model: "iPhone 13 Pro Max", capacityMah: 4870, price: "1.050k" },
-  { model: "iPhone 14", capacityMah: 3670, price: "800k" },
-  { model: "iPhone 14 Plus", capacityMah: 4850, price: "900k" },
-  { model: "iPhone 14 Pro", capacityMah: 3490, price: "1.000k" },
-  { model: "iPhone 14 Pro Max", capacityMah: 4870, price: "1.200k" },
-  { model: "iPhone 15", capacityMah: 3620, price: "850k" },
-  { model: "iPhone 15 Plus", capacityMah: 4780, price: "1.000k" },
-  { model: "iPhone 15 Pro", capacityMah: 3500, price: "1.000k" },
-  { model: "iPhone 15 Pro Max", capacityMah: 4860, price: "1.200k" },
-  { model: "iPhone 16", capacityMah: 3890, price: "900k" },
-  { model: "iPhone 16 Pro", capacityMah: 3900, price: "1.100k" },
-  { model: "iPhone 16 Pro Max", capacityMah: 5180, price: "1.400k" },
+  {
+    model: "iPhone X",
+    energizerDlc: "800k",
+    bisonDlChuan: "700k",
+    dlcNoName: "700k",
+    pinSanCoCap: "-",
+  },
+  {
+    model: "iPhone XR",
+    energizerDlc: "750k",
+    bisonDlChuan: "650k",
+    dlcNoName: "650k",
+    pinSanCoCap: "600k",
+  },
+  {
+    model: "iPhone XS",
+    energizerDlc: "800k",
+    bisonDlChuan: "700k",
+    dlcNoName: "700k",
+    pinSanCoCap: "600k",
+  },
+  {
+    model: "iPhone XS Max",
+    energizerDlc: "800k",
+    bisonDlChuan: "700k",
+    dlcNoName: "700k",
+    pinSanCoCap: "-",
+  },
+  {
+    model: "iPhone 11",
+    energizerDlc: "800k",
+    bisonDlChuan: "700k",
+    dlcNoName: "700k",
+    pinSanCoCap: "600k",
+  },
+  {
+    model: "iPhone 11 Pro",
+    energizerDlc: "1.000k",
+    bisonDlChuan: "850k",
+    dlcNoName: "850k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 11 Pro Max",
+    energizerDlc: "1.100k",
+    bisonDlChuan: "900k",
+    dlcNoName: "900k",
+    pinSanCoCap: "DLC 800k",
+  },
+  {
+    model: "iPhone 12 / 12 Pro",
+    energizerDlc: "900k",
+    bisonDlChuan: "750k",
+    dlcNoName: "750k",
+    pinSanCoCap: "DLC 650k",
+  },
+  {
+    model: "iPhone 12 Pro Max",
+    energizerDlc: "1.000k",
+    bisonDlChuan: "850k",
+    dlcNoName: "850k",
+    pinSanCoCap: "700k",
+  },
+  {
+    model: "iPhone 13",
+    energizerDlc: "900k",
+    bisonDlChuan: "750k",
+    dlcNoName: "750k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 13 Pro",
+    energizerDlc: "1.100k",
+    bisonDlChuan: "950k",
+    dlcNoName: "950k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 13 Pro Max",
+    energizerDlc: "1.150k",
+    bisonDlChuan: "1.000k",
+    dlcNoName: "1.000k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 14",
+    energizerDlc: "900k",
+    bisonDlChuan: "800k",
+    dlcNoName: "800k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 14 Plus",
+    energizerDlc: "1.000k",
+    bisonDlChuan: "900k",
+    dlcNoName: "900k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 14 Pro",
+    energizerDlc: "1.100k",
+    bisonDlChuan: "950k",
+    dlcNoName: "950k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 14 Pro Max",
+    energizerDlc: "1.200k",
+    bisonDlChuan: "1.000k",
+    dlcNoName: "1.000k",
+    pinSanCoCap: "DLC 800k",
+  },
+  {
+    model: "iPhone 15",
+    energizerDlc: "1.000k",
+    bisonDlChuan: "900k",
+    dlcNoName: "900k",
+    pinSanCoCap: "DLC 650k",
+  },
+  {
+    model: "iPhone 15 Plus",
+    energizerDlc: "1.050k",
+    bisonDlChuan: "900k",
+    dlcNoName: "900k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 15 Pro",
+    energizerDlc: "1.100k",
+    bisonDlChuan: "1.000k",
+    dlcNoName: "1.000k",
+    pinSanCoCap: "DLC 700k",
+  },
+  {
+    model: "iPhone 15 Pro Max",
+    energizerDlc: "1.200k",
+    bisonDlChuan: "1.050k",
+    dlcNoName: "1.050k",
+    pinSanCoCap: "DLC 800k",
+  },
+  {
+    model: "iPhone 16",
+    energizerDlc: "1.050k",
+    bisonDlChuan: "900k",
+    dlcNoName: "900k",
+    pinSanCoCap: "800k",
+  },
+  {
+    model: "iPhone 16 Plus",
+    energizerDlc: "1.150k",
+    bisonDlChuan: "1.000k",
+    dlcNoName: "1.000k",
+    pinSanCoCap: "800k",
+  },
+  {
+    model: "iPhone 16 Pro",
+    energizerDlc: "1.300k",
+    bisonDlChuan: "1.100k",
+    dlcNoName: "1.100k",
+    pinSanCoCap: "800k",
+  },
+  {
+    model: "iPhone 16 Pro Max",
+    energizerDlc: "1.500k",
+    bisonDlChuan: "1.300k",
+    dlcNoName: "1.300k",
+    pinSanCoCap: "DLC 900k",
+  },
 ];

@@ -30,14 +30,14 @@ export const priceCatalog: readonly PriceCatalogItem[] = [
     })),
   },
   {
-    title: "THAY PIN DUNG LƯỢNG CAO",
+    title: "THAY PIN IPHONE",
     href: "/bang-gia-thay-pin",
-    note: "Pin Energizer, bảo hành 1 năm",
+    note: "Energizer DLC, Bison chuẩn, pin sàn cổ cáp. BH 1 năm",
     total: batteryPrices.length,
     rows: batteryPrices.slice(0, 3).map((row) => ({
       model: row.model,
-      detail: `${row.capacityMah.toLocaleString("vi-VN")} mAh`,
-      price: row.price,
+      detail: `Energizer ${row.energizerDlc} | Bison ${row.bisonDlChuan}`,
+      price: row.energizerDlc,
     })),
   },
   {
