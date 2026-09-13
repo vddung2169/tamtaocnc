@@ -13,7 +13,7 @@ export const batteryTerms: readonly string[] = [
 ];
 
 export const batteryPrices: readonly BatteryPriceRow[] = [
-  { model: "iPhone X", capacityMah: 3180, price: "800k" },
+  { model: "iPhone X", capacityMah: 3180, price: "1000k" },
   { model: "iPhone XR", capacityMah: 3580, price: "750k" },
   { model: "iPhone XS", capacityMah: 3200, price: "800k" },
   { model: "iPhone XS Max", capacityMah: 3725, price: "800k" },

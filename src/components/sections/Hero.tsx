@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ZaloIcon } from "@/components/BrandIcons";
 import { site } from "@/data/site";
+import tamtaoImg from "../../../public/images/tamtao.jpg";
 
 export function Hero() {
   return (
@@ -72,10 +73,8 @@ export function Hero() {
 
       <figure className="neon-frame overflow-hidden rounded-2xl bg-surface">
         <Image
-          src="/images/tamtao.jpg"
+          src={tamtaoImg}
           alt={`Mặt tiền cửa tiệm ${site.name} với bảng hiệu xanh neon tại ${site.storeAddress}`}
-          width={1200}
-          height={900}
           priority
           sizes="(max-width: 1024px) 100vw, 44vw"
           className="h-auto w-full object-cover"
