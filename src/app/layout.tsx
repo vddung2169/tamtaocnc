@@ -128,7 +128,7 @@ const localBusinessJsonLd = {
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Độ SIM vật lý cho iPhone lock" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "CNC máy iPhone lock" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Up ổ EID, độ eSIM" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: ", độ eSIM" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Thay pin iPhone dung lượng cao" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sửa chữa và thay thế linh kiện" } },
   ],

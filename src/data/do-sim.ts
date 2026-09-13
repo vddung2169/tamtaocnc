@@ -25,17 +25,38 @@ export const simPrices: readonly SimPriceRow[] = [
   {
     model: "14 / 15 / Plus / Pro / Max",
     service: "CNC độ SIM với máy nguyên bản",
-    price: "700k",
+    price: "700k - 800k",
   },
-  { model: "16 / Plus / 17", service: "CNC, riêng 17 có thể add thêm eSIM", price: "800k" },
+  {
+    model: "16 / Plus / 17",
+    service: "CNC, riêng 17 có thể add thêm eSIM",
+    price: "800k",
+  },
+  { model: "17", service: "eSIM không CNC", price: "700k" },
   { model: "17 Pro Max", service: "CNC, add eSIM được", price: "1.200k" },
-  { model: "17 Pro / Max", service: "Thuần eSIM, add như quốc tế", price: "1.000k - 1.200k" },
+  {
+    model: "17 Pro / Max",
+    service: "Thuần eSIM, add như quốc tế",
+    price: "1.000k",
+  },
   {
     model: "16 Pro / Max",
-    service: "eSIM không CNC / CNC + SIM vật lý",
+    service: "eSIM không CNC / CNC SIM vật lý",
     price: "800k - 1.000k",
   },
-  { model: "16 Pro / Max", service: "Đã CNC, up EID", price: "700k" },
-  { model: "15 Pro / Max", service: "Đã CNC up EID / up EID kèm eSIM", price: "500k / 650k" },
-  { model: "16e / 17e", service: "CNC TMSI, không cần SIM ghép", price: "700k" },
+  { model: "16 Pro / Max", service: "Đã CNC, up EID", price: "650k" },
+  {
+    model: "15 Pro / Max",
+    service: "Đã CNC up EID / up EID kèm eSIM",
+    price: "500k / 700k",
+  },
+  { model: "15 Pro / Max", service: "eSIM không CNC", price: "800k" },
+  {
+    model: "16e / 17e",
+    service: "CNC TMSI 2 SIM, không cần SIM ghép",
+    price: "800k",
+  },
+  { model: "15 Pro / Max Canada", service: "Up eSIM EID", price: "900k" },
+  { model: "16 Pro / Max Canada", service: "Up eSIM EID", price: "900k" },
 ];
+
