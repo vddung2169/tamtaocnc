@@ -82,11 +82,11 @@ export const shippingPoints: readonly ShippingPoint[] = [
   {
     label: "Chi nhánh 2",
     address: "9A đường số 6, Linh Xuân, TP HCM",
-    mapQuery: "9A Đường số 6, Linh Xuân, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
+    mapQuery: "TRUNG TÂM SỬA CHỮA TÂM TÁO ( Thủ Đức)",
     mapHref: "https://maps.app.goo.gl/Xu2xvQV1Y32h7cg28",
     receiver: site.owner,
     phone: site.phone,
     note: "Anh em ở xa gửi qua chành xe FuTa",
   },
-  
+
 ];
